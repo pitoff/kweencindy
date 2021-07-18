@@ -24,7 +24,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Category</th>
-                                            <th>Booked_Date</th>
+                                            <th>Booked Date</th>
                                         </tr>
                                     </thead>
 
@@ -75,10 +75,10 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Category</th>
-                                            <th>Booked_Date</th>
-                                            <th>Accept_Date</th>
-                                            <th>Decline_date</th>
-                                            <th>Confirm_payment</th>
+                                            <th>Booked Date</th>
+                                            <th>Accept</th>
+                                            <th>Decline</th>
+                                            <th>Confirm payment</th>
                                             <th>View</th>
                                         </tr>
                                     </thead>

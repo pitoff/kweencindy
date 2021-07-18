@@ -71,11 +71,11 @@
         </div>
     </section>
 </div>
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>
 <script>
     function paid(){
         setTimeout(()=> document.querySelector('.paid').remove(), 3000);
     }
     paid();
 </script>
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
