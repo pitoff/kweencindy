@@ -40,8 +40,8 @@
 
 
                                 <div class="form-group">
-                                    <a href=""><button class="btn btn-primary">Proceed to pay by card</button></a>
-                                    <em style="text-transform:lowercase; color:white;">currently unavailable!</em>
+                                    <a href="<?= URLROOT?>/bookings/initialize"><button class="btn btn-primary">Proceed to pay by card</button></a>
+                                    <!-- <em style="text-transform:lowercase; color:white;">Available!</em> -->
                                     <div class="submitting"></div>
                                 </div>
                             </div>

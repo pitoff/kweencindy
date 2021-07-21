@@ -23,7 +23,7 @@
 			<?php else:?>
 				<nav id="colorlib-main-menu" role="navigation">
 					<ul>
-						<li class="colorlib-active"><a href="<?= URLROOT;?>">Home</a></li>
+						<li class="colorlib"><a href="<?= URLROOT;?>">Home</a></li>
 						<li class=""><a href="<?= URLROOT;?>/pages/about">About</a></li>
 						<li><a href="<?= URLROOT;?>/pages/pricing">Pricing</a></li>
 						<li><a href="<?= URLROOT;?>/posts/all">Gallery</a></li>

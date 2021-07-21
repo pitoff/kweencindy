@@ -5,19 +5,22 @@
             <div class="row d-flex no-gutters">
                 <div class="col-lg-12 col-md-10 order-md-last d-flex align-items-stretch">
                     <div class="contact-wrap w-100 p-md-5 p-4">
+
+                        <h3 class="mb-4 heading pb-1" style="color:#ffc107;">My bookings: </h3>
+                        <div class="paid mb-2"><em><?= flash('paid'); ?></em></div>
+                        <div class="mb-2"><em><?= flash('paystack_paid'); ?></em></div>
+                        <div class="not_accept mb-2"><em><?= flash2('not_accepted'); ?></em></div>
                         <div class="table-responsive">
-                            <h3 class="mb-4 heading pb-1" style="color:#ffc107;">My bookings: </h3>
-                            <div class="paid mb-2"><em><?= flash('paid');?></em></div>
                             <table class="table table-hover" style="color:white;">
                                 <thead>
                                     <tr>
                                         <!-- <th>Name</th> -->
                                         <th>Category</th>
                                         <th>Price</th>
-                                        <th>Confirm_pay</th>
-                                        <th>Payment_status</th>
-                                        <th>Date_status</th>
-                                        <th>Booked_Date</th>
+                                        <th>Paid ?</th>
+                                        <th>Payment status</th>
+                                        <th>Date</th>
+                                        <th>Make payment</th>
                                         <th>View</th>
                                     </tr>
                                 </thead>
@@ -32,30 +35,34 @@
 
                                                 <?php if ($booking->status === 'paid' || $booking->status === 'received') : ?>
                                                     <td></td>
-                                                <?php elseif($booking->date_status === 'accepted') : ?>
-                                                    <form action="<?= URLROOT ?>/bookings/mybookings/<?= $booking->id ?>" method="POST"> 
+                                                <?php elseif ($booking->date_status === 'accepted') : ?>
+                                                    <form action="<?= URLROOT ?>/bookings/mybookings/<?= $booking->id ?>" method="POST">
                                                         <td>
                                                             <input type="hidden" name="status" value="paid">
                                                             <button type="submit" data-toggle="tooltip" title="Comfirm payment" class="btn btn-primary">
-                                                                Pay
+                                                                Paid
                                                             </button>
                                                         </td>
                                                     </form>
-                                                <?php else:?>
+                                                <?php else : ?>
                                                     <td></td>
                                                 <?php endif; ?>
 
                                                 <td><?= $booking->status ?></td>
 
-                                                <?php if($booking->date_status === 'declined'):?>
+                                                <?php if ($booking->date_status === 'declined') : ?>
                                                     <td class="text-danger"><?= $booking->date_status ?></td>
-                                                <?php else:?>
+                                                <?php else : ?>
                                                     <td class="text-success"><?= $booking->date_status ?></td>
+                                                <?php endif; ?>
+
+                                                <?php if ($booking->status === 'paid' || $booking->status === 'received') : ?>
+                                                    <td></td>
+                                                <?php else:?>
+                                                    <td><a href="<?= URLROOT ?>/bookings/payment/<?= $booking->id ?>"><button type="button" data-toggle="tooltip" title="View booking" class="btn btn-primary"><span class="fa fa-money"></span></button></a></td>
                                                 <?php endif;?>
 
-                                                <td><?= $booking->book_date ?></td>
-                                                <!-- <td><?= $booking->location ?></td> -->
-                                                <td><a href="<?= URLROOT?>/bookings/viewsingle/<?= $booking->id?>"><button type="button" data-toggle="tooltip" title="View booking" class="btn btn-primary"><span class="fa fa-eye"></span></button></a>
+                                                <td><a href="<?= URLROOT ?>/bookings/viewsingle/<?= $booking->id ?>"><button type="button" data-toggle="tooltip" title="View booking" class="btn btn-primary"><span class="fa fa-eye"></span></button></a>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
@@ -72,9 +79,14 @@
     </section>
 </div>
 <script>
-    function paid(){
-        setTimeout(()=> document.querySelector('.paid').remove(), 3000);
+    function paid() {
+        setTimeout(() => document.querySelector('.paid').remove(), 5000);
     }
     paid();
+
+    function notAccept(){
+        setTimeout(() => document.querySelector(".not_accept").remove(), 5000);
+    }
+    notAccept();
 </script>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
